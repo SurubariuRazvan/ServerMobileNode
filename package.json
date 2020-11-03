@@ -7,7 +7,7 @@
     "start": "backpack"
   },
   "keywords": [],
-  "author": "ilazar",
+  "author": "razvan surubariu",
   "license": "",
   "dependencies": {
     "backpack-core": "^0.8.4",
