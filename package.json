@@ -17,5 +17,13 @@
     "koa-cors": "^0.0.16",
     "koa-router": "^7.4.0",
     "ws": "^7.1.2"
+  },
+  "devDependencies": {
+    "@koa/cors": "^3.1.0",
+    "bcrypt": "^5.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "koa-jwt": "^4.0.0",
+    "nedb": "^1.8.0",
+    "nedb-promise": "^2.0.1"
   }
 }
