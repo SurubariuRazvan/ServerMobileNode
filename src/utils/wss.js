@@ -27,6 +27,7 @@ export const broadcast = (userId, data) => {
         return;
     }
     wss.clients.forEach(client => {
+        console.log(client.user);
         if (client.readyState === WebSocket.OPEN && userId === client.user.data._id) {
             console.log(`broadcast sent to ${client.user.data.username}`);
             client.send(JSON.stringify(data));

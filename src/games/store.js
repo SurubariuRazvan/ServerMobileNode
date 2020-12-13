@@ -13,17 +13,21 @@ export class GameStore {
     }
 
     async find(props, offset, size) {
-        // this.store.find({ planet: /ar/ }, function (err, docs) {
-        //     // docs contains Mars and Earth
-        // });
-
-       return new Promise((resolve, reject)=> {
+        return new Promise((resolve, reject) => {
             this.store.nedb.find(props).sort({_id: 1}).skip(offset).limit(size)
-                .exec(function async(err, docs) {
-                    resolve(docs);
+                .exec(function async(err, games) {
+                    resolve(games);
                 })
         });
-        // return this.store.find(props);
+    }
+
+    async findOwners(props) {
+        return new Promise((resolve, reject) => {
+            this.store.nedb.find(props, {owners: 1, _id: 0}).sort({owners: 1})
+                .exec(function async(err, games) {
+                    resolve([...new Set(games.map(x => x.owners))]);
+                })
+        });
     }
 
     async findOne(id) {
